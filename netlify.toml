@@ -10,7 +10,7 @@ publish = "dist"
 
 # Handled here because the Netlify subdomain is not a custom domain and cannot be managed via Netlify's domain management page.
 [[redirects]]
-from = "https://traductorautonomo.netlify.app/*"
+from = "https://timoetjen.netlify.app/*"
 to = "https://timoetjen.eu/:splat"
 status = 301
 force = true
