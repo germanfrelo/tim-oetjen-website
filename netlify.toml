@@ -8,60 +8,13 @@ publish = "dist"
 
 # Netlify default subdomain
 
+# Handled here because the Netlify subdomain is not a custom domain and cannot be managed via Netlify's domain management page.
 [[redirects]]
 from = "https://traductorautonomo.netlify.app/*"
-to = "https://traductorautonomo.es/:splat"
+to = "https://timoetjen.eu/:splat"
 status = 301
 force = true
 
 # Custom domains
 
-# Primary domain is traductorautonomo.es; there is no need to redirect www.traductorautonomo.es because Netlify already redirects automatically between the apex domain and www subdomain
-
-[[redirects]]
-from = "https://www.timoetjen.eu/*"
-to = "https://traductorautonomo.es/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "https://timoetjen.eu/*"
-to = "https://traductorautonomo.es/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "https://www.traductorautonomo.com/*"
-to = "https://traductorautonomo.es/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "https://traductorautonomo.com/*"
-to = "https://traductorautonomo.es/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "https://www.traducteurindependant.com/*"
-to = "https://traductorautonomo.es/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "https://traducteurindependant.com/*"
-to = "https://traductorautonomo.es/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "https://www.traducteurindependant.fr/*"
-to = "https://traductorautonomo.es/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "https://traducteurindependant.fr/*"
-to = "https://traductorautonomo.es/:splat"
-status = 301
-force = true
+# All other redirects are managed via Netlify's domain management page and do not need to be declared here.
