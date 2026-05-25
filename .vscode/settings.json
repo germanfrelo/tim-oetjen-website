@@ -28,5 +28,6 @@
 	},
 
 	// Spell checker
-	"cSpell.language": "en,fr"
+	"cSpell.language": "en,fr",
+	"cSpell.words": ["timoetjen", "traductorautonomo"]
 }
