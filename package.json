@@ -1,18 +1,18 @@
 {
-	"name": "timoetjen.eu",
+	"name": "tim-oetjen-website",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Source code for timoetjen.eu",
+	"description": "Source code for tim-oetjen-website",
 	"keywords": [
 		"website"
 	],
-	"homepage": "https://github.com/germanfrelo/timoetjen.eu#readme",
+	"homepage": "https://github.com/germanfrelo/tim-oetjen-website#readme",
 	"bugs": {
-		"url": "https://github.com/germanfrelo/timoetjen.eu/issues"
+		"url": "https://github.com/germanfrelo/tim-oetjen-website/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/germanfrelo/timoetjen.eu.git"
+		"url": "https://github.com/germanfrelo/tim-oetjen-website.git"
 	},
 	"license": "UNLICENSED",
 	"author": "Germán Freixinós",
