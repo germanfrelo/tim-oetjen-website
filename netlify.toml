@@ -8,13 +8,37 @@ publish = "dist"
 
 # Netlify default subdomain
 
-# Handled here because the Netlify subdomain is not a custom domain and cannot be managed via Netlify's domain management page.
 [[redirects]]
 from = "https://timoetjen.netlify.app/*"
 to = "https://timoetjen.eu/:splat"
 status = 301
 force = true
 
-# Custom domains
+# Custom domain aliases (apex domains)
 
-# All other redirects are managed via Netlify's domain management page and do not need to be declared here.
+# www. variants are handled automatically at the Netlify platform level (unverified mechanism).
+# The apex versions are declared here to force a redirect to the primary domain.
+
+[[redirects]]
+from = "https://traductorautonomo.com/*"
+to = "https://timoetjen.eu/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://traductorautonomo.es/*"
+to = "https://timoetjen.eu/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://traducteurindependant.com/*"
+to = "https://timoetjen.eu/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://traducteurindependant.fr/*"
+to = "https://timoetjen.eu/:splat"
+status = 301
+force = true
