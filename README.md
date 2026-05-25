@@ -10,11 +10,18 @@ Your website is built with a tool called **Astro**. Instead of a content managem
 
 You do not need to touch the build process itself — just edit the right file, and publishing happens automatically.
 
+To make changes you will need two tools:
+
+- **VS Code** — a free code editor for opening and editing project files. Download at [code.visualstudio.com](https://code.visualstudio.com/).
+- **GitHub Desktop** — for saving and publishing changes. Download at [desktop.github.com](https://desktop.github.com/).
+
+Both should already be installed if you have previously worked on this project.
+
 ## Folder structure at a glance
 
 ```text
 astro.config.mjs         ← Site domain (one line only)
-netlify.toml             ← Hosting redirect rules (two lines only)
+netlify.toml             ← Hosting and redirect configuration
 src/
   consts.ts              ← Global site data (title, description, email)
   pages/
@@ -76,7 +83,7 @@ To replace your profile photo:
 
 1. Export the new photo in **WebP format** at roughly 768 × 1024 pixels (portrait orientation).
 2. Name the file exactly `photo-profile.webp`.
-3. Replace the existing file at the path above.
+3. In **Finder**, open the `src/assets/images/` folder inside your project folder and drag the new photo there, clicking **Replace** when prompted.
 
 The filename must stay exactly the same, otherwise the page will break.
 
@@ -103,17 +110,42 @@ Colours use the `hsl()` format: `hsl(hue degrees, saturation%, lightness%)`. Use
 
 There is also a `@media (prefers-color-scheme: dark)` block further down with equivalent values for dark mode. If you change a light-mode colour, update the matching dark-mode colour too.
 
-### 6. Site domain
+### 6. Domain configuration
 
-**File:** [astro.config.mjs](astro.config.mjs#L6)
+Your site's domain setup has two layers that must always stay in sync:
 
-Line 6 contains the `site` property — the canonical URL of your website. If your domain changes, update only the URL value on that line. Leave every other line in this file untouched.
+- **Netlify** (via its web interface) — registers each domain so that Netlify's infrastructure accepts traffic arriving on it and provisions an SSL certificate.
+- **[netlify.toml](netlify.toml)** — tells Netlify what to *do* with that traffic: redirect it to your primary domain instead of serving the site directly.
 
-### 7. Redirect rules
+If only one layer is updated, things break silently: Netlify either rejects traffic from an unknown domain, or accepts it and serves duplicate content instead of redirecting.
 
-**File:** [netlify.toml](netlify.toml#L13-L14)
+#### Changing the primary domain
 
-Lines 13–14 contain the redirect that forwards traffic from the old Netlify subdomain to your custom domain. If your domain changes, update the `to` value on line 14 to match your new domain. Leave the `from` value and everything else in the file untouched.
+If you move your site to a new primary domain (e.g. from `timoetjen.eu` to `timoetjen.com`):
+
+1. **Netlify web interface** — Go to [Site configuration → Domain management](https://app.netlify.com/projects/timoetjen/domain-management) and set the new domain as the primary custom domain.
+
+2. **GitHub Copilot** — Open [.github/prompts/change-primary-domain.prompt.md](.github/prompts/change-primary-domain.prompt.md) in VS Code and click **Run Prompt**. Copilot will ask you for the new domain, update [astro.config.mjs](astro.config.mjs) and [netlify.toml](netlify.toml) automatically, and remind you of the remaining steps.
+
+   It will not work in browser-based tools such as Copilot web, Gemini, or ChatGPT, as those cannot access your local project files.
+
+3. **[src/consts.ts](src/consts.ts)** — Update `CONTACT_EMAIL` if the email address is also changing.
+
+4. Commit and push.
+
+#### Adding or removing an alias domain
+
+Alias domains are alternative addresses (e.g. `traductorautonomo.com`) that redirect visitors to the primary domain.
+
+To **add** an alias:
+
+1. Add the domain in the Netlify web interface under Domain management → Add domain alias.
+2. Open [netlify.toml](netlify.toml) in VS Code, copy any one of the existing `[[redirects]]` blocks at the bottom of the file, paste it at the very end, and update the `from` line to use the new alias domain.
+
+To **remove** an alias:
+
+1. Remove the domain in the Netlify web interface.
+2. Open [netlify.toml](netlify.toml) in VS Code and delete the five-line block for that domain: everything from `[[redirects]]` through `force = true`.
 
 ## What you should not edit
 
@@ -130,8 +162,8 @@ The following files are technical and should not be changed without developer in
 
 ## How changes are published
 
-1. Edit the relevant file and save it.
-2. Commit the change to Git and push it to the `main` branch on GitHub.
+1. Open the relevant file in **VS Code**, make your edit, and save with **Cmd+S**.
+2. Open **GitHub Desktop**. Your change appears automatically. Write a short commit message, click **Commit to main**, then click **Push origin**.
 3. Netlify detects the push automatically and rebuilds the site.
 4. Your live site reflects the change within about a minute.
 
