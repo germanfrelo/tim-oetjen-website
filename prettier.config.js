@@ -15,7 +15,7 @@ const config = {
 			},
 		},
 		{
-			files: ["*.astro", "*.css", "*.html"],
+			files: ["*.astro", "*.css", "*.html", "consts.ts"],
 			options: {
 				printWidth: 9999,
 			},
