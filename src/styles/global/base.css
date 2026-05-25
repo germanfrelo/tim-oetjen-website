@@ -59,13 +59,13 @@ When users prefer reduced motion:
 	*,
 	*::before,
 	*::after {
+		scroll-behavior: auto !important; /* 4 */
 		background-attachment: initial !important; /* 1 */
 		transition-delay: 0s !important; /* 2 */
 		transition-duration: 0s !important; /* 2 */
 		animation-duration: 1ms !important; /* 3 */
 		animation-delay: -1ms !important; /* 3 */
 		animation-iteration-count: 1 !important; /* 3 */
-		scroll-behavior: auto !important; /* 4 */
 	}
 
 	html:focus-within {

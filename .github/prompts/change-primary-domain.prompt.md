@@ -3,6 +3,8 @@ agent: agent
 description: Change the website's primary domain in astro.config.mjs and netlify.toml
 ---
 
+<!-- markdownlint-disable MD041 -->
+
 Before making any changes, ask the user: "What is the new primary domain?" Then read the current files to determine the existing primary domain and apply the following changes using the domain the user provided:
 
 **`astro.config.mjs`**
