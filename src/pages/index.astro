@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import heroImage from "../assets/images/photo-profile.webp";
 import Layout from "../layouts/Layout.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { CONTACT_EMAIL, SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
 <Layout
@@ -24,7 +24,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				>
 					<li>
 						<a
-							href="mailto:tim@traductorautonomo.es"
+							href={`mailto:${CONTACT_EMAIL}`}
 							rel="external noopener"
 							class="button"
 							data-button-variant="primary"
@@ -157,7 +157,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 			>
 				<li>
 					<a
-						href="mailto:tim@traductorautonomo.es"
+						href={`mailto:${CONTACT_EMAIL}`}
 						rel="external noopener"
 						class="button"
 						data-button-variant="primary"
